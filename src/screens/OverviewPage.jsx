@@ -38,7 +38,6 @@ export class OverviewPage extends React.Component {
 				<div className="d-flex justify-content-center">
 					<HomeButtons path={'/overview/komplain'} tipe={'Komplain Pasien'} img={folder}/>
 					<HomeButtons path={'/overview/unit'} tipe={'Performa Unit'} img={units}/>
-                    <HomeButtons path={'#'} tipe={'Dashboard Performa RS'} img={dashboard}/>
 				</div>
 				<br></br>
 			</div>
