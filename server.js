@@ -1,3 +1,4 @@
+//server.js
 const express = require('express');
 const favicon = require('express-favicon');
 const path = require('path');
