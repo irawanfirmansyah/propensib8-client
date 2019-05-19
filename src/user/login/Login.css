@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Open+Sans|Ubuntu');
+
+.bckgrnd-1{
+    background-color: white;
+    border-radius: 6px;
+    position: relative;
+    width: 400px;
+    height: 450px;
+    margin-left: 500px;
+}
+
+.label-login{
+    font-family: Cabin;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: normal;
+
+    color: #034078;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    z-index : 1;
+}
+
+.input-login{
+    background: #FFFCFC;
+    border: 0.75px solid #30C5FF;
+    border-radius: 5px;
+    width: 280px;
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    z-index : 1;
+}
+
+.form-title{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: normal;
+    text-align: center;
+
+    color: #034078;
+    margin: 80px 0px 30px 0px;
+}
+
+.form-content{
+    position: relative;
+    margin: -500px 0px 0px 500px;
+}
+
+h1.login-title{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: normal;
+    text-align: center;
+
+    color: #FFFFFF;
+    margin-bottom: 50px;
+}
+
+.font-danger{
+    font-family: Cabin;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: normal;
+    color: red;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    z-index : 1;
+}
+
+.login{
+    padding: 80px 50px 0px 0px;
+}
+
+.form-control-login{
+    background: #FFFCFC;
+    border: 2px solid #30C5FF;
+    border-radius: 3px;
+    align-items: center;
+}
+
+input {
+    background: #FFFCFC;
+    border: 0.75px solid #30C5FF;
+    border-radius: 5px;
+}
+
+label{
+    font-family: Cabin;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: normal;
+    color: #034078;
+}
+
+.btn-form{
+    background: linear-gradient(97.66deg, #30C5FF 0%, #655DC5 100%);
+    border-radius: 5px;
+    font-family: Cabin;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: normal;
+    color: #FFFFFF;
+    border: transparent;
+}
+
+@media only screen and (max-width:768px) {
+    .bckgrnd-1{
+        width: 200px;
+        height: 400px;
+    }
+}

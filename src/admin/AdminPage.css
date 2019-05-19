@@ -1,0 +1,30 @@
+h1.title {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: normal;
+    color: #FFFFFF;
+    margin: 50px 0px 50px 0px;
+}
+
+h1.title-ua{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: normal;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.modal-title{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 37px;
+    align-items: center;
+
+    color: #034078;
+}
