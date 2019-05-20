@@ -92,6 +92,15 @@ export class Dashboard extends React.Component {
                     <NavigationBar onClick={this.props.onClick} />
                     <br></br>
                     <div className="container dashboard">
+                        <div className="d-flex justify-content-between align-items-center">
+                            <h1 className="header1-dashboard">Dashboard</h1>
+                            <input type="month"/>
+                            <div className="d-flex justify-content-end align-self-end">
+                                <p className="font-select fs-active">Rawat Jalan dan Rawat Inap</p><span className="span-select"> | </span>
+                                <p className="font-select">Rawat Jalan</p><span className="span-select"> | </span>
+                                <p className="font-select">Rawat Inap</p>
+                            </div>
+                        </div>
                         <br></br>
                         <h5 className="header5-dashboard">Performa Keseluruhan</h5>
                         <div className="d-flex justify-content-around">

@@ -68,6 +68,15 @@ p{
   background: white;
 }
 
+.header1-dashboard{
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  color: #034078;
+
+}
+
 .header5-dashboard{
   font-family: Cabin;
   font-style: normal;
