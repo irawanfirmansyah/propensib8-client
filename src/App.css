@@ -216,6 +216,29 @@ p{
   cursor: pointer;
 }
 
+.font-select-dboard{
+  margin: 15px 3px 0px 3px;
+  font-family: Cabin;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 34px;
+  color: #C4C4C4;
+  cursor: pointer;
+}
+
+.fs-dboard-active{
+  margin: 15px 3px 0px 3px;
+  font-family: Cabin;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 34px;
+  color :#034078;
+}
+
+.font-select-dboard
+
 .font-select{
   margin: 15px 3px 0px 3px;
   font-family: Cabin;
@@ -255,6 +278,15 @@ p{
   font-size: 13px;
   color: #034078;
   margin-left: 20px;
+}
+
+.date-label-dboard{
+  font-family: Cabin;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #034078;
+  margin-right: 10px;  
 }
 
 .date-label{

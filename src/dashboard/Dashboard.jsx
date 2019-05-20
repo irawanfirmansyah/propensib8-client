@@ -94,14 +94,19 @@ export class Dashboard extends React.Component {
                     <div className="container dashboard">
                         <br></br>
                         <div className="d-flex justify-content-between align-items-center">
-                            <h1 className="header1-dashboard">Dashboard</h1>
-                            <input type="month" />
-                            <div className="d-flex justify-content-end align-self-end">
-                                <p className="font-select">Rawat Jalan dan Rawat Inap</p><span className="span-select"> | </span>
+                            <div className="p-2">
+                                <h1 className="header1-dashboard">Dashboard</h1>
+                            </div>
+                            <div className="p-2">
+                                <p className="date-label-dboard">Pilih bulan dan tahun :</p><input type="month" />
+                            </div>
+                            <div className="d-flex justify-content-end align-self-end ml-auto p-2">
+                                <p className="font-select fs-dashboard-active">Rawat Jalan dan Rawat Inap</p><span className="span-select"> | </span>
                                 <p className="font-select">Rawat Jalan</p><span className="span-select"> | </span>
                                 <p className="font-select">Rawat Inap</p>
                             </div>
                         </div>
+                        <br></br>
                         <h5 className="header5-dashboard">Performa Keseluruhan</h5>
                         <div className="d-flex justify-content-around">
                             <div className="card text-center">
