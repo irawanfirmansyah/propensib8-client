@@ -101,9 +101,9 @@ export class Dashboard extends React.Component {
                                 <p className="date-label-dboard">Pilih bulan dan tahun :</p><input type="month" />
                             </div>
                             <div className="d-flex justify-content-end align-self-end ml-auto p-2">
-                                <p className="font-select fs-dashboard-active">Rawat Jalan dan Rawat Inap</p><span className="span-select"> | </span>
-                                <p className="font-select">Rawat Jalan</p><span className="span-select"> | </span>
-                                <p className="font-select">Rawat Inap</p>
+                                <p className="font-select-dboard fs-dboard-active">Rawat Jalan dan Rawat Inap</p><span className="span-select"> | </span>
+                                <p className="font-select-dboard">Rawat Jalan</p><span className="span-select"> | </span>
+                                <p className="font-select-dboard">Rawat Inap</p>
                             </div>
                         </div>
                         <br></br>
