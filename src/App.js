@@ -62,7 +62,7 @@ export class App extends React.Component {
 					<PrivateRoute path="/overview/unit" exact={true} component={OverviewUnit} onClick={this.signOut} roles={['ROLE_CS']}  />
 					<PrivateRoute path="/overview/komplain" exact={true} component={OverviewKomplain} onClick={this.signOut} roles={['ROLE_CS']}  />
 					<PrivateRoute path='/admin' exact={true} component={AdminPage} onClick={this.signOut} roles={['ROLE_ADMIN']} />
-					<PrivateRoute path='/dashboard' exact={true} component={Dashboard} roles={['ROLE_TOP_MANAGER', 'ROLE_EXECUTIVE']} />
+					<PrivateRoute path='/dashboard' exact={true} component={Dashboard} onClick={this.signOut} roles={['ROLE_TOP_MANAGER', 'ROLE_EXECUTIVE']} />
 					<Route component={NotFound} />
 				</Switch>
 			</Router>

@@ -29,6 +29,7 @@ export class OverviewUnit extends React.Component {
             viewHistory: false,
             currUnit: '',
             data: {},
+            listHistory: [],
             listKomplain: [],
             listReview: [],
             key: 'review',
@@ -36,7 +37,9 @@ export class OverviewUnit extends React.Component {
             currDate: [],
             startDate: '',
             endDate: '',
-            activeType: 'total'
+            activeType: 'total',
+            solvedByHRMarketing: 0,
+            solvedByMarketing: 0,
         }
         this.handleClick = this.handleClick.bind(this);
         this.datePicker = this.datePicker.bind(this);
@@ -77,17 +80,47 @@ export class OverviewUnit extends React.Component {
             )
                 .then(response => response.json())
                 .then((data) => {
-                    console.log(data);
                     this.setState({
                         data: data,
                         listKomplain: data.komplainRest,
-                        listReview: data.reviewRest
+                        listReview: data.reviewRest,
+                        solvedByHRMarketing: data.komplainSolvedByHRMarketing,
+                        solvedByMarketing: data.komplainSolved
                     })
                 })
 
             this.setState({
                 loading: false
             });
+        }
+
+        this.loadHistory = async () => {
+            this.setState({
+                loading: true
+            });
+            let data;
+
+            await fetch(API_BASE_URL + '/unit-parameter/riwayat-performa',
+                {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
+                    }
+                })
+                .then((response) => {
+                    response.json();
+                })
+                .then(result => data = result);
+            if(data){
+                this.setState({
+                    listHistory: data
+                });
+            }
+            this.setState({
+                loading: false,
+            })
         }
     }
 
@@ -221,7 +254,6 @@ export class OverviewUnit extends React.Component {
     }
 
     render() {
-        console.log(this.state.activeType);
         if (this.state.loading) {
             return (
                 <Loading msg="Fetching Data . . ." />
@@ -237,7 +269,7 @@ export class OverviewUnit extends React.Component {
                         <img className="cover" src={background1} alt="background1"></img>
                     </div>
                     <NavigationBar onClick={this.props.onClick} />
-                    <ContainerUnit unit={currUnit} goBack={this.goBack} changeType={this.changeType} type={this.state.activeType}>
+                    <ContainerUnit unit={currUnit} goBack={this.goBack} changeType={this.changeType} type={this.state.activeType} solvedByHRMarketing={this.state.solvedByHRMarketing} solvedByMarketing={this.state.solvedByMarketing}>
                         <Tabs
                             id="controlled-tab"
                             activeKey={this.state.key}
@@ -279,7 +311,7 @@ export class OverviewUnit extends React.Component {
                             />
                             <div className="title-table-1">Performa Unit - {this.state.currDate}</div>
                         </div>
-                        <form onSubmit={this.datePicker}>
+                        <form onSubmit={this.datePicker} style={{ marginRight: '50px' }}>
                             <p className="date-label">Pilih bulan dan tahun :</p>
                             <div className="input-group mb-3">
                                 <input className="form-control" type="month" onChange={this.handleChange}></input>
@@ -288,6 +320,7 @@ export class OverviewUnit extends React.Component {
                                 </div>
                             </div>
                         </form>
+                        <button className="btn btn-hist" onClick={this.loadHistory}>Riwayat</button>
                     </div>
                     <br></br>
                     <div className="table-05">

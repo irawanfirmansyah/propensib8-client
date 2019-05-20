@@ -13,17 +13,6 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import { AlertList } from "react-bs-notifier";
 
-const customStyles = {
-    content: {
-        top: "50%",
-        left: "50%",
-        right: "auto",
-        bottom: "auto",
-        marginRight: "-50%",
-        transform: "translate(-50%, -50%)"
-    }
-};
-
 export class OverviewKomplain extends React.Component {
 
     units = ['Dokter', 'Perawat', 'Radiologi', 'Laboratorium', 'Fasilitas Kamar',
@@ -40,9 +29,9 @@ export class OverviewKomplain extends React.Component {
             resolveDescription: '',
             idSurvei: '',
             showModal: false,
-            isOpen: false,
             alerts: [],
             timeout: 3000,
+            viewHistory: false,
         };
         this.viewDetailPasien = this.viewDetailPasien.bind(this);
         this.goBack = this.goBack.bind(this);
@@ -262,38 +251,6 @@ export class OverviewKomplain extends React.Component {
                         <KomplainRow listKomplain={this.state.listKomplainPasien} onClick={this.viewDetailPasien} />
                     </TableContainer>
                 </div>
-                <Modal
-                    show={this.state.isOpen} onHide={this.handleHide} centered
-                >
-                    <div className="row">
-                        <div className="col-md-12 text-center my-3">
-                            <h2 ref={subtitle => (this.subtitle = subtitle)}>
-                                Lihat Riwayat Komplain
-                  </h2>
-                        </div>
-                        <div className="col-md-12 text-center my-3">
-                            <form>
-                                <input
-                                    type="month"
-                                    required
-                                    onChange={this.handleChange}
-                                    data-date-format="YYYY-MM"
-                                />
-                            </form>
-                        </div>
-                        <div className="col-md-12 text-center my-3">
-                            <button
-                                className="btn-navy-sqr mx-2"
-                                onClick={this.setRedirect}
-                            >
-                                Lihat Riwayat
-                  </button>
-                            <button className="btn-navy-sqr" onClick={this.closeModal}>
-                                close
-                  </button>
-                        </div>
-                    </div>
-                </Modal>
             </div>
         );
     }

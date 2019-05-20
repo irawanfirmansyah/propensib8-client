@@ -46,6 +46,53 @@ p{
   margin: 0px 8px 0px 8px;
 }
 
+.icon-komplain{
+  margin-right: 15px;
+}
+
+.p-card{
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  color: #034078;
+}
+
+.card{
+  background: linear-gradient(82.01deg, #30C5FF 0%, #655DC5 98.9%)!important;
+  border: transparent;
+  padding: 2px 2px 2px 2px;
+}
+
+.card-body{
+  background: white;
+}
+
+.header5-dashboard{
+  font-family: Cabin;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  color: #034078;
+  margin-left: 10px;
+}
+
+.container.dashboard{
+  background-color: white;
+  position: relative;
+}
+
+.background-dashboard{
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+.card-header{
+  color: white;
+  background: linear-gradient(82.01deg, #30C5FF 0%, #655DC5 98.9%);
+}
+
 .background-1{
   width: 100%;
   height: 100%;
@@ -152,7 +199,8 @@ p{
 }
 
 .list-detail{
-  margin-left: -200px;
+  margin-left: -250px;
+  margin-right: 100px;
 }
 
 .arrow-1{
@@ -340,7 +388,7 @@ p{
 }
 
 .unit-elem{
-  margin: 40px 40px 40px 40px;
+  margin: 40px -80px 40px -80px;
   text-align: center
 }
 

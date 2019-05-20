@@ -11,7 +11,6 @@ export const DetailPasien = (props) => {
                 <p className="font-data-pasien">Nomor telepon : {props.item.pasien.nomorTelepon}</p>
                 <p className="font-data-pasien">Alamat rumah : {props.item.pasien.alamat}</p>
                 <div className="item-flex-pasien">
-                    <p className="font-data-pasien">Urgeni : TINGGI</p>
                     <p className="font-data-pasien">Tanggal komplain : {props.item.listKomplain[0].tanggal}</p>
                 </div>
             </div>

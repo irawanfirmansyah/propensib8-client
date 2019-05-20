@@ -42,18 +42,17 @@ export const ContainerUnit = (props) => {
                 <div className="list-detail">
                     <div className="flex-center">
                         <p className="font-unit-elem">Komplain terselesaikan</p>
-                        <div id="circle">{!props.unit.komplainSolved ? "0" : props.unit.komplainSolved}</div>
+                        <div id="circle">{props.solvedByHRMarketing}</div>
                     </div>
                     <div className="flex-center">
                         <p className="font-unit-elem">Komplain belum selesai</p>
-                        <div id="circle">{!props.unit.komplain ? "0" : props.unit.komplain - props.unit.komplainSolved}</div>
+                        <div id="circle">{props.solvedByMarketing}</div>
                     </div>
                     <div className="flex-center">
                         <p className="font-unit-elem">Review Pasien</p>
                         <div id="circle-end">{!props.unit.review ? "0" : props.unit.review}</div>
                     </div>
                 </div>
-                <button className="btn btn-hist">Riwayat</button>
             </div>
             <br></br>
             <div className="container">
