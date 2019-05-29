@@ -9,7 +9,7 @@ import { OverviewPage } from './screens/OverviewPage';
 import AdminPage from './admin/AdminPage';
 import LoginForm from './user/login/Login';
 import createHistory from 'history/createBrowserHistory';
-import { ACCESS_TOKEN, USER_ROLE } from './constants';
+import { ACCESS_TOKEN, USER_ROLE, USER_ID } from './constants';
 import { Loading } from './components/Loading';
 import { PrivateRoute } from './components/PrivateRoute';
 import { Dashboard } from './dashboard/Dashboard';
@@ -36,6 +36,7 @@ export class App extends React.Component {
 		});
 		localStorage.removeItem(ACCESS_TOKEN);
 		localStorage.removeItem(USER_ROLE);
+		localStorage.removeItem(USER_ID);
 	}
 
 	componentWillMount() {

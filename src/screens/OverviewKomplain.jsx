@@ -12,6 +12,7 @@ import { Modal, Button } from 'react-bootstrap';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import { AlertList } from "react-bs-notifier";
+import swal from "sweetalert";
 
 export class OverviewKomplain extends React.Component {
 
@@ -60,8 +61,24 @@ export class OverviewKomplain extends React.Component {
             })
         }
 
+        this.countCharacter = (e) => {
+            let str = e.target.value;
+            document.getElementById("charCount").innerHTML = str.length + " out of 300 characters";
+        }
+
         this.handleShow = () => {
-            if (this.state.resolveDescription.length === 0) {
+            if (this.state.resolveDescription.length <= 15) {
+                const newAlert = {
+                    id: (new Date()).getTime(),
+                    type: 'danger',
+                    headline: 'Perhatian!',
+                    message: "Minimal tindak lanjut komplain 15 sampai dengan 300 karakter!"
+                }
+                this.setState({
+                    alerts: [...this.state.alerts, newAlert]
+                })
+            }
+            else if (this.state.resolveDescription.length === 0) {
                 const newAlert = {
                     id: (new Date()).getTime(),
                     type: 'danger',
@@ -99,12 +116,11 @@ export class OverviewKomplain extends React.Component {
                 },
                 body: JSON.stringify(data)
             })
-            this.setState({
-                idSurvei: '',
-                deskripsi: '',
-                viewDetail: false,
-            })
-            window.location.reload();
+                .then(() => {
+                    swal("Berhasil!", "Tindaklanjut berhasil dilakukan", "success").then(() => {
+                        window.location.reload();
+                    })
+                })
         }
     }
 
@@ -145,8 +161,14 @@ export class OverviewKomplain extends React.Component {
         })
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 this.setState({
                     listKomplainPasien: data
+                })
+            })
+            .catch(() => {
+                this.setState({
+                    listKomplainPasien: []
                 })
             });
         this.setState({
@@ -209,10 +231,10 @@ export class OverviewKomplain extends React.Component {
                             activeKey={this.state2}
                         >
                             <Tab eventKey="tindakLanjut" title="Tindak Lanjut">
-                                <textarea className="konten-komplain-1" value={this.state.resolveDescription} onChange={this.handleChange} placeholder="Ketik tindak lanjut disini..."></textarea>
+                                <textarea className="konten-komplain-1" value={this.state.resolveDescription} onChange={this.handleChange} placeholder="Ketik tindak lanjut disini..." onKeyUp={this.countCharacter} maxLength="300"></textarea><span id="charCount"></span>
                                 <div className="d-flex justify-content-between">
                                     <button className="btn btn-yellow" onClick={this.goBack}>Kembali</button>
-                                    <button className="btn btn-table" onClick={this.handleShow}>Selesaikan</button>
+                                    <button className="btn btn-table" onClick={this.handleShow} disabled={this.state.resolveDescription.length > 300}>Selesaikan</button>
                                 </div>
                             </Tab>
                         </Tabs>

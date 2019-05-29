@@ -2,7 +2,6 @@ import React from 'react';
 import { NavigationBar } from '../components/Navbar';
 import background1 from '../img/background-1.png';
 import {HomeButtons} from '../components/HomeButtons';
-import dashboard from '../img/dashboard.png';
 import units from '../img/units.png';
 import folder from '../img/folder.png';
 

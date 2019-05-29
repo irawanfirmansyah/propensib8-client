@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { FormDataPasien } from '../containers/FormDataPasien';
 import { FormSurvei } from '../containers/FormSurvei';
 import background1 from '../img/background-1.png';
@@ -7,8 +6,8 @@ import background2 from '../img/background-2.png';
 import { AlertList } from 'react-bs-notifier';
 import { Loading } from '../components/Loading';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 import { ACCESS_TOKEN, API_BASE_URL } from '../constants';
+import swal from 'sweetalert';
 
 class SurveiPasien extends React.Component {
 
@@ -51,6 +50,8 @@ class SurveiPasien extends React.Component {
             selectedUnits: [],
             selectedUnitComplaint: [],
             selectedUnitParameters: [],
+            notif: '',
+            showNotif: false,
         };
         this.handleBlurInput = this.handleBlurInput.bind(this);
         this.handlePatientSubmit = this.handlePatientSubmit.bind(this);
@@ -60,6 +61,22 @@ class SurveiPasien extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleSecondClick = this.handleSecondClick.bind(this);
         this.refCallBack = this.refCallBack.bind(this);
+
+        this.notification = (notification) => {
+            this.setState({
+                notif: notification
+            });
+
+            setTimeout(() => {
+                this.setState({
+                    showNotif: true
+                });
+            }, 3000);
+
+            this.setState({
+                showNotif: false
+            });
+        }
     }
 
     componentWillUnmount() {
@@ -179,18 +196,19 @@ class SurveiPasien extends React.Component {
             });
 
             //post survei model
-            await fetch(API_BASE_URL+"/survei/add", {
+            await fetch(API_BASE_URL + "/survei/add", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+localStorage.getItem(ACCESS_TOKEN)
+                    'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
                 },
                 body: JSON.stringify(data)
             })
                 .then(response => response.json()
                     .then((value) => {
                         surveiResponse = value.result
+                        swal("Berhasil!","Terima kasih sudah ingin mengisi survei","success")
                     }));
             //kalau unit terpilih, jalankan method post data Review
             if (this.state.selectedUnits.length > 0) {
@@ -206,12 +224,12 @@ class SurveiPasien extends React.Component {
 
                     let reviewResponse;
                     //loop fetch
-                    await fetch(API_BASE_URL+"/review/add", {
+                    await fetch(API_BASE_URL + "/review/add", {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json',
-                            'Authorization': 'Bearer '+localStorage.getItem(ACCESS_TOKEN)
+                            'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
                         },
                         body: JSON.stringify(dataReview)
                     })
@@ -245,12 +263,12 @@ class SurveiPasien extends React.Component {
                 });
 
                 //post survei model
-                await fetch(API_BASE_URL+"/survei/add", {
+                await fetch(API_BASE_URL + "/survei/add", {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer '+localStorage.getItem(ACCESS_TOKEN)
+                        'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
 
                     },
                     body: JSON.stringify(data)
@@ -258,6 +276,7 @@ class SurveiPasien extends React.Component {
                     .then(response => response.json()
                         .then((value) => {
                             surveiResponse = value.result
+                            swal("Berhasil!","Terima kasih sudah ingin mengisi survei","success")
                         }));
 
 
@@ -277,12 +296,12 @@ class SurveiPasien extends React.Component {
 
                         let complaintResponse;
 
-                        await fetch(API_BASE_URL+"/komplain/add", {
+                        await fetch(API_BASE_URL + "/komplain/add", {
                             method: 'POST',
                             headers: {
                                 'Accept': 'application/json',
                                 'Content-Type': 'application/json',
-                                'Authorization': 'Bearer '+localStorage.getItem(ACCESS_TOKEN)
+                                'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
                             },
                             body: JSON.stringify(dataComplaint)
                         })
@@ -304,12 +323,12 @@ class SurveiPasien extends React.Component {
 
                         let unitParamResponse;
 
-                        await fetch(API_BASE_URL+"/unit-parameter/add", {
+                        await fetch(API_BASE_URL + "/unit-parameter/add", {
                             method: 'POST',
                             headers: {
                                 'Accept': 'application/json',
                                 'Content-Type': 'application/json',
-                                'Authorization': 'Bearer '+localStorage.getItem(ACCESS_TOKEN)
+                                'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
                             },
                             body: JSON.stringify(dataUnitParam)
                         })
@@ -369,13 +388,13 @@ class SurveiPasien extends React.Component {
                 loading: true
             });
 
-            fetch(API_BASE_URL+"/pasien/" + this.state.noMedrec,
+            fetch(API_BASE_URL + "/pasien/" + this.state.noMedrec,
                 {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer '+localStorage.getItem(ACCESS_TOKEN)
+                        'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
                     }
                 })
                 .then(response => response.json())
@@ -526,6 +545,17 @@ class SurveiPasien extends React.Component {
         if (this.state.loading) {
             return (
                 <Loading msg="Loading..." />
+            )
+        }
+
+        if (this.state.showNotif) {
+            return (
+                <div>
+                    <div>
+                        <img className="cover" src={background1} alt="background1"></img>
+                    </div>
+                    <h1>{this.state.notif}</h1>
+                </div>
             )
         }
 

@@ -8,7 +8,6 @@ class CustomTable extends React.Component {
     componentDidMount() {
         $(this.table).DataTable({
             searching: false,
-            info: false,
             responsive: true,
             lengthChange: false,
         })

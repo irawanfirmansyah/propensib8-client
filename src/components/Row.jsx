@@ -86,7 +86,7 @@ export const KomplainRow = (props) => {
                 
                 console.log(item);
                 return (
-                    <tr key={item.pasien.id}>
+                    <tr key={item.idSurvei}>
                         <td><p className="p-column">{item.pasien.nama}</p></td>
                         <td><p className="p-column">{item.listKomplain[0].tanggal}</p></td>
                         <td><p className="p-column">{item.rating}</p></td>

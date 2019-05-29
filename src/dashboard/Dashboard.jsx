@@ -4,11 +4,6 @@ import { ACCESS_TOKEN, API_BASE_URL } from '../constants';
 import { NavigationBar } from '../components/Navbar';
 import backgroundlinear from '../img/backgroundlinear.png';
 
-const cardStyle = {
-    maxWidth: "18rem;",
-    borderColor: "background: linear-gradient(82.01deg, #30C5FF 0%, #655DC5 98.9%);"
-};
-
 export class Dashboard extends React.Component {
     constructor(props) {
         super(props)

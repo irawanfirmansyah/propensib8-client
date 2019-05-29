@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { ACCESS_TOKEN, USER_ROLE } from '../constants';
-import isEmpty from 'lodash/isEmpty';
 
 export const PrivateRoute = ({ component: Component, roles, onClick, ...rest }) => (
     <Route {...rest} render={props => {

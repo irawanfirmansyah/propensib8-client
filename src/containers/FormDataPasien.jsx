@@ -1,5 +1,18 @@
 import React from 'react';
 
+function validateButton(pasien) {
+    console.log(pasien);
+    // if(!pasien.id && !pasien.)
+    if(pasien.alamat && pasien.id && pasien.idMedrec &&
+        pasien.jenisKelamin && pasien.nama && pasien.nik &&
+        pasien.nomorHp && pasien.nomorTelepon &&
+        pasien.tanggalLahir && pasien.tempatLahir){
+            return true
+        }
+    return false
+}
+
+
 export const FormDataPasien = (props) => {
     return (
         <div className="container data-pasien">
@@ -61,7 +74,9 @@ export const FormDataPasien = (props) => {
                         <div className="col">
                         </div>
                         <div className="col last-col">
-                            <button type="submit" className="btn btn-next">Selanjutnya</button>
+                            {validateButton(props.pasien) ? <button type="submit" className="btn btn-next">Selanjutnya</button> :
+                            <button type="submit" className="btn btn-next" disabled>Selanjutnya</button>
+                        }
                         </div>
                     </div>
                 </form>
