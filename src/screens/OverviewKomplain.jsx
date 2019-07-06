@@ -90,7 +90,6 @@ export class OverviewKomplain extends React.Component {
                 })
             }
             else {
-                console.log(this.state.resolveDescription.length);
                 this.setState({
                     showModal: true,
                 })
@@ -99,7 +98,6 @@ export class OverviewKomplain extends React.Component {
 
         this.resolveKomplain = async (e) => {
             e.preventDefault();
-            console.log(this.state.idSurvei);
             this.setState({
                 loading: true,
             })
@@ -125,7 +123,6 @@ export class OverviewKomplain extends React.Component {
     }
 
     viewDetailPasien(e) {
-        console.log(e.target.id);
         e.preventDefault();
         this.setState({
             viewDetail: true,
@@ -161,7 +158,6 @@ export class OverviewKomplain extends React.Component {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 this.setState({
                     listKomplainPasien: data
                 })
@@ -177,13 +173,11 @@ export class OverviewKomplain extends React.Component {
     }
 
     render() {
-        console.log(this.state.listKomplainPasien)
         if (this.state.loading) {
             return <Loading msg="Fetching Data..." />;
         }
 
         if (this.state.viewDetail) {
-            console.log(this.state.resolveDescription);
             let selectedComplaint, patientComplaints;
             for (let i = 0; i < this.state.listKomplainPasien.length; i++) {
                 if (this.state.idSurvei === this.state.listKomplainPasien[i].idSurvei) {
@@ -192,7 +186,6 @@ export class OverviewKomplain extends React.Component {
                     break;
                 }
             }
-            console.log(patientComplaints);
             return (
                 <div>
                     <AlertList

@@ -8,7 +8,6 @@ const request = (options) => {
     if (localStorage.getItem(ACCESS_TOKEN)) {
         headers.append('Authorization', 'Bearer ' + localStorage.getItem(ACCESS_TOKEN))
     }
-    console.log(options.body);
     const defaults = { headers: headers };
     options = Object.assign({}, defaults, options);
 
@@ -25,7 +24,7 @@ const request = (options) => {
 
 export function getUser(id) {
     return request({
-        url : API_BASE_URL + '/api/user/' + id,
+        url: API_BASE_URL + '/api/user/' + id,
         method: 'GET'
     })
 }
@@ -47,8 +46,8 @@ export function deleteUser(requestBody) {
 
 export function updateUser(requestBody, id) {
     return request({
-        url: API_BASE_URL + '/api/user/' +id,
-        method : 'PUT',
+        url: API_BASE_URL + '/api/user/' + id,
+        method: 'PUT',
         body: JSON.stringify(requestBody)
     });
 }

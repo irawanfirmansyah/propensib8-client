@@ -177,7 +177,6 @@ class SurveiPasien extends React.Component {
         var today = new Date();
         var dd = today.getDate()
         var mm = today.getMonth() + 1;
-        // console.log(mm);
         var yyyy = today.getFullYear();
         if (dd < 10) { dd = '0' + dd } if (mm < 10) { mm = '0' + mm }
         today = yyyy + mm + dd;
@@ -208,7 +207,7 @@ class SurveiPasien extends React.Component {
                 .then(response => response.json()
                     .then((value) => {
                         surveiResponse = value.result
-                        swal("Berhasil!","Terima kasih sudah ingin mengisi survei","success")
+                        swal("Berhasil!", "Terima kasih sudah ingin mengisi survei", "success")
                     }));
             //kalau unit terpilih, jalankan method post data Review
             if (this.state.selectedUnits.length > 0) {
@@ -276,7 +275,7 @@ class SurveiPasien extends React.Component {
                     .then(response => response.json()
                         .then((value) => {
                             surveiResponse = value.result
-                            swal("Berhasil!","Terima kasih sudah ingin mengisi survei","success")
+                            swal("Berhasil!", "Terima kasih sudah ingin mengisi survei", "success")
                         }));
 
 
@@ -314,7 +313,6 @@ class SurveiPasien extends React.Component {
 
                 if (this.state.selectedUnitParameters.length > 0) {
                     let unitParams = this.state.selectedUnitParameters;
-                    console.log("post list unitparam");
                     for (let i = 0; i < unitParams.length; i++) {
                         const dataUnitParam = {
                             unit: unitParams[i].unit,
@@ -509,10 +507,7 @@ class SurveiPasien extends React.Component {
                 unit: arr1[0],
                 parameter: arr1[1]
             };
-            console.log(selected)
             const array = this.state.selectedUnitParameters.filter(function (value) {
-                console.log(value.unit !== selected.unit)
-                console.log(value.parameter !== selected.parameter)
                 return (value.unit !== selected.unit) && (value.parameter !== selected.parameter);
             });
 
@@ -531,12 +526,10 @@ class SurveiPasien extends React.Component {
                 selectedUnitParameters: [...this.state.selectedUnitParameters, unitParameterObj]
             });
         }
-        console.log(id);
     }
 
     refCallBack = (element) => {
         if (element) {
-            console.log(element.getBoundingClientRect());
         }
     };
 

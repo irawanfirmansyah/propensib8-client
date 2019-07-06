@@ -16,7 +16,6 @@ const renderSwitch = (rating, tipe, eventClick, selectedUnits, unitSelected, onC
         arr = array2;
     }
     // console.log(tipe)
-    console.log(arr);
     return <UnitContainer
         ratingValue={rating}
         units={arr}

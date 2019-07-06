@@ -123,11 +123,11 @@ class AdminPage extends React.Component {
                         },
                         body: JSON.stringify(dataJson)
                     })
-                    .then(response => console.log(response))
+                    .then()
                     .then(() => window.location.reload())
                     .catch((error) => {
                         const newAlert = {
-                            
+
                         };
                     });
             }
@@ -135,7 +135,6 @@ class AdminPage extends React.Component {
 
         this.handleSubmit = async (e) => {
             e.preventDefault();
-            console.log(e.target.id);
             const data = new FormData(e.target);
             const dataJson = {};
 
@@ -155,8 +154,6 @@ class AdminPage extends React.Component {
                     }
                 }
             });
-
-            console.log(dataJson);
             if (dataJson.newPassword !== dataJson.repeatNewPassword) {
                 const newAlert = {
                     id: (new Date()).getTime(),

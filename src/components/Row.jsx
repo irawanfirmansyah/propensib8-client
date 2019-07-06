@@ -66,7 +66,7 @@ function getUrgensiType(rating, tanggal) {
     let tipe = 0;
 
     if (rating <= 2) {
-        if (today - date > 5 && rating == 1) {
+        if (today - date > 5 && rating === 1) {
             tipe = 2;
         } else {
             tipe = 1;
@@ -83,8 +83,6 @@ export const KomplainRow = (props) => {
     return (
         <tbody>
             {props.listKomplain.map(item => {
-                
-                console.log(item);
                 return (
                     <tr key={item.idSurvei}>
                         <td><p className="p-column">{item.pasien.nama}</p></td>
